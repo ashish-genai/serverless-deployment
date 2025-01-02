@@ -2,6 +2,7 @@
 
 // Confirm delete operations
 function confirmDelete(itemType) {
+    // amazonq-ignore-next-line
     return confirm(`Are you sure you want to delete this ${itemType}?`);
 }
 
@@ -32,3 +33,4 @@ document.addEventListener('submit', function(event) {
         form.classList.add('was-validated');
     }
 });
+

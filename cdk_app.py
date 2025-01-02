@@ -8,6 +8,7 @@ from aws_cdk import (
     aws_cognito as cognito,
     aws_iam as iam,
     aws_cloudfront as cloudfront,
+    pipelines,
     aws_cloudfront_origins as origins,
     Stage,
     Environment
@@ -254,6 +255,24 @@ class AssetManagementStage(Stage):
 class AssetManagementPipeline(Stack):
     def __init__(self, scope: Construct, id: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
+        
+        # Create the pipeline
+        pipeline = pipelines.CodePipeline(
+            self,
+            "Pipeline",
+            synth=pipelines.ShellStep(
+                "Synth",
+                input=pipelines.CodePipelineSource.git_hub(
+                    "your-username/asset-management-system",
+                    "main",
+                ),
+                commands=[
+                    "npm install -g aws-cdk",
+                    "pip install -r requirements.txt",
+                    "cdk synth"
+                ]
+            )
+        )
 
         pipeline = cdk.pipelines.CodePipeline(
             self, "Pipeline",

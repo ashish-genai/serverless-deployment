@@ -23,6 +23,7 @@ A comprehensive asset management application built with FastAPI and deployed as 
 - AWS CDK CLI
 - Xcode Command Line Tools (for macOS)
 - Homebrew (recommended for macOS package management)
+- GitHub account (for deployment)
 
 ## Installation
 
@@ -34,12 +35,10 @@ A comprehensive asset management application built with FastAPI and deployed as 
 > ```
 > before running the installation commands.
 
-## Installation
-
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/asset-management.git
-cd asset-management
+git clone https://github.com/your-username/asset-management-system.git
+cd asset-management-system
 ```
 
 2. Install dependencies:
@@ -68,10 +67,43 @@ cp .env.example .env
 # Edit .env with your AWS configuration
 ```
 
-4. Deploy the application using AWS CDK:
+4. Configure AWS and deploy:
 ```bash
+aws configure  # Set up your AWS credentials
 cdk bootstrap
+```
+
+## Deployment
+
+### GitHub Deployment (Recommended)
+
+1. Push your code to GitHub:
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+2. The GitHub Actions workflow will automatically trigger deployment to AWS.
+   You can monitor the deployment progress in the Actions tab of your GitHub repository.
+
+### Local Development (Alternative)
+
+If you need to test changes locally before pushing to GitHub:
+
+1. Synthesize the CloudFormation template:
+```bash
+cdk synth
+```
+
+2. Deploy the stack:
+```bash
 cdk deploy
+```
+
+3. For development with hot-reload:
+```bash
+cdk watch
 ```
 
 ## Usage
