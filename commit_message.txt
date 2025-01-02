@@ -1,0 +1,7 @@
+Add deployment guide with GitHub Actions and local setup instructions
+
+Added comprehensive deployment guide that details two deployment methods:
+1. GitHub deployment using AWS CDK Pipeline (recommended)
+2. Local development deployment with step-by-step instructions
+
+Guide includes prerequisites and setup steps for both methods.
