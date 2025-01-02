@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Dashboard</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">Assets</h5>
+                <p class="card-text">
+                    Total Assets: {{ asset_count }}<br>
+                    Total Value: {{ total_value | format_currency }}
+                </p>
+                <a href="{{ url_for('assets.list_assets') }}" class="btn btn-primary">Manage Assets</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">Orders</h5>
+                <p class="card-text">
+                    Recent Orders: {{ recent_order_count }}<br>
+                    Pending Orders: {{ pending_order_count }}
+                </p>
+                <a href="{{ url_for('orders.list_orders') }}" class="btn btn-primary">View Orders</a>
+            </div>
+        </div>
+    </div>
+
+    {% if current_user.role in ['administrator', 'manager'] %}
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card">
+            <div class="card-body">
+                <h5 class="card-title">Reports</h5>
+                <p class="card-text">Access detailed reports and analytics.</p>
+                <a href="{{ url_for('reports.index') }}" class="btn btn-primary">View Reports</a>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Recent Activity</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Action</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for activity in recent_activities %}
+                            <tr>
+                                <td>{{ activity.created_at | datetime }}</td>
+                                <td>{{ activity.action }}</td>
+                                <td>{{ activity.details }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

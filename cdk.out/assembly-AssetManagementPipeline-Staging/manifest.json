@@ -1,0 +1,378 @@
+{
+  "version": "38.0.1",
+  "artifacts": {
+    "AssetManagementPipelineStagingAssetManagementB3BCADFD.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "AssetManagementPipelineStagingAssetManagementB3BCADFD.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "AssetManagementPipelineStagingAssetManagementB3BCADFD": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "AssetManagementPipelineStagingAssetManagementB3BCADFD.template.json",
+        "terminationProtection": false,
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/55309794ed7719c731a10cfed3613cc1e2f63ce1eaa8dc1426023300203fc52c.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "AssetManagementPipelineStagingAssetManagementB3BCADFD.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "Staging-AssetManagement"
+      },
+      "dependencies": [
+        "AssetManagementPipelineStagingAssetManagementB3BCADFD.assets"
+      ],
+      "metadata": {
+        "/AssetManagementPipeline/Staging/AssetManagement/Users/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Users0A0EEA89"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/Assets/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Assets9A31D427"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/Orders/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrdersA9B65338"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/StaticAssets/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StaticAssetsDDEE9873"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/StaticAssets/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "StaticAssetsPolicy88A634B0"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementUserPool/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementUserPool8689EC8B"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementUserPool/app-client/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementUserPoolappclient21781F3E"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/DependenciesLayer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DependenciesLayerDF300E31"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AuthFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuthFunctionServiceRole87A7A68C"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AuthFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuthFunctionServiceRoleDefaultPolicy4198AD5B"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AuthFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AuthFunctionA1CD5E0F"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetFunctionServiceRole56F1AE3D"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetFunctionServiceRoleDefaultPolicy52897A6B"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetFunctionA633A7D1"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/OrderFunction/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrderFunctionServiceRole3E66F569"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/OrderFunction/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrderFunctionServiceRoleDefaultPolicyC38EDEDD"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/OrderFunction/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "OrderFunctionFABF799C"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPI0C4A8900"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPICloudWatchRoleAF954F23"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIAccountEFFEDCB7"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIDeployment8C4671F22803b3dd1d5b8e9ed62c54b361e09ceb"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/DeploymentStage.staging/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIDeploymentStagestaging8529BF09"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIEndpointDB12A245"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIOPTIONS2AF69A4D"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/auth/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIauth9EF735D2"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/auth/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIauthOPTIONS67654BAA"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/auth/POST/ApiPermission.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..auth": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIauthPOSTApiPermissionAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTauthE5F26EDA"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/auth/POST/ApiPermission.Test.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..auth": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIauthPOSTApiPermissionTestAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTauth46F43309"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/auth/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIauthPOST4413DBEC"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassets6FD3ADB7"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsOPTIONSF0BF5026"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/GET/ApiPermission.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.GET..assets": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsGETApiPermissionAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAGETassets9947B73D"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/GET/ApiPermission.Test.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.GET..assets": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsGETApiPermissionTestAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAGETassets884A73ED"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsGET5066EAC5"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/POST/ApiPermission.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..assets": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsPOSTApiPermissionAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTassets9282E78F"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/POST/ApiPermission.Test.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..assets": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsPOSTApiPermissionTestAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTassets49B79074"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/assets/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIassetsPOST7A80C15A"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIorders70EF6C24"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersOPTIONSE44DB8AC"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/GET/ApiPermission.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.GET..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersGETApiPermissionAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAGETorders8CAA9B9B"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/GET/ApiPermission.Test.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.GET..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersGETApiPermissionTestAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAGETorders84E79BE4"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/GET/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersGETA9604A32"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/POST/ApiPermission.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersPOSTApiPermissionAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTordersA7DE82F7"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/POST/ApiPermission.Test.AssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EA.POST..orders": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersPOSTApiPermissionTestAssetManagementPipelineStagingAssetManagementAssetManagementAPI7BB7B0EAPOSTorders92D84D2C"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAPI/Default/orders/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAPIordersPOSTD448C139"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementAuthorizer/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementAuthorizer68BC9A04"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementDistribution/Origin1/S3Origin/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementDistributionOrigin1S3Origin6E76010C"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/AssetManagementDistribution/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetManagementDistributionB527999B"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/APIUrl": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "APIUrl"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/UserPoolId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "UserPoolId"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/ClientId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ClientId"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/DistributionDomain": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "DistributionDomain"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/AssetManagementPipeline/Staging/AssetManagement/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "AssetManagementPipeline/Staging/AssetManagement"
+    }
+  }
+}

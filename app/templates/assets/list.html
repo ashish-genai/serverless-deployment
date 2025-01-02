@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}Assets{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Assets</h2>
+    </div>
+    {% if current_user.role in ['administrator', 'manager'] %}
+    <div class="col text-end">
+        <a href="{{ url_for('assets.create_asset') }}" class="btn btn-primary">Create Asset</a>
+    </div>
+    {% endif %}
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Department</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for asset in assets %}
+                    <tr>
+                        <td>{{ asset.id }}</td>
+                        <td>{{ asset.name }}</td>
+                        <td>{{ asset.asset_type.name }}</td>
+                        <td>{{ asset.department }}</td>
+                        <td>{{ asset.quantity }}</td>
+                        <td>{{ asset.unit_price | format_currency }}</td>
+                        <td>
+                            <a href="{{ url_for('assets.view_asset', asset_id=asset.id) }}" class="btn btn-sm btn-info btn-action">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                            {% if current_user.role in ['administrator', 'manager'] %}
+                            <a href="{{ url_for('assets.edit_asset', asset_id=asset.id) }}" class="btn btn-sm btn-warning btn-action">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            <button onclick="deleteAsset({{ asset.id }})" class="btn btn-sm btn-danger btn-action">
+                                <i class="fas fa-trash"></i> Delete
+                            </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function deleteAsset(assetId) {
+    if (confirmDelete('asset')) {
+        fetch(`/api/assets/${assetId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.reload();
+            } else {
+                alert('Error deleting asset');
+            }
+        });
+    }
+}
+</script>
+{% endblock %}

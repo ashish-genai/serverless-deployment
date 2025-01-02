@@ -1,0 +1,25 @@
+{
+  "app": "python3 cdk_app.py",
+  "watch": {
+    "include": [
+      "**"
+    ],
+    "exclude": [
+      "README.md",
+      "cdk*.json",
+      "requirements*.txt",
+      "source.bat",
+      "**/__pycache__",
+      "python/__pycache__",
+      "tests",
+      "*.swp",
+      "*.swo"
+    ]
+  },
+  "//": "Note: For M1/M2 Macs, ensure Python is installed as universal2 binary",
+  "context": {
+    "aws-cdk:enableDiffNoFail": "true",
+    "@aws-cdk/core:stackRelativeExports": "true",
+    "@aws-cdk/core:newStyleStackSynthesis": "true"
+  }
+}

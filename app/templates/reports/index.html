@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Reports{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Reports Dashboard</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Asset Value Summary</h5>
+                <p class="card-text">Total value of all assets across departments.</p>
+                <a href="{{ url_for('reports.asset_value') }}" class="btn btn-primary">View Report</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Department Inventory</h5>
+                <p class="card-text">Asset distribution by department.</p>
+                <a href="{{ url_for('reports.department_inventory') }}" class="btn btn-primary">View Report</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card dashboard-card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Order History</h5>
+                <p class="card-text">Track incoming and outgoing orders.</p>
+                <a href="{{ url_for('reports.order_history') }}" class="btn btn-primary">View Report</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

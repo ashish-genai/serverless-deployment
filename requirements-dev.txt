@@ -1,0 +1,15 @@
+#aws-cdk-lib>=2.0.0
+#constructs>=10.0.0
+#pytest>=6.0.0
+#aws-cdk.aws-lambda-python-alpha>=2.0.0
+#boto3>=1.26.0
+
+# Add to requirements.txt
+aws-cdk-lib>=2.0.0
+constructs>=10.0.0
+
+aws-cdk-lib==2.118.0
+aws-cdk.aws-lambda-python-alpha==2.118.0a0
+aws_ddk_core==1.4.0
+boto3==1.34.12
+

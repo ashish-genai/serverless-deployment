@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block title %}View Asset{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Asset Details</h2>
+    </div>
+    {% if current_user.role in ['administrator', 'manager'] %}
+    <div class="col text-end">
+        <a href="{{ url_for('assets.edit_asset', asset_id=asset.id) }}" class="btn btn-warning">Edit Asset</a>
+    </div>
+    {% endif %}
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Name</dt>
+            <dd class="col-sm-9">{{ asset.name }}</dd>
+
+            <dt class="col-sm-3">Type</dt>
+            <dd class="col-sm-9">{{ asset.asset_type.name }}</dd>
+
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9">{{ asset.description or 'N/A' }}</dd>
+
+            <dt class="col-sm-3">Department</dt>
+            <dd class="col-sm-9">{{ asset.department }}</dd>
+
+            <dt class="col-sm-3">Quantity</dt>
+            <dd class="col-sm-9">{{ asset.quantity }}</dd>
+
+            <dt class="col-sm-3">Unit Price</dt>
+            <dd class="col-sm-9">{{ asset.unit_price | format_currency }}</dd>
+
+            <dt class="col-sm-3">Total Value</dt>
+            <dd class="col-sm-9">{{ (asset.quantity * asset.unit_price) | format_currency }}</dd>
+
+            <dt class="col-sm-3">Created At</dt>
+            <dd class="col-sm-9">{{ asset.created_at | datetime }}</dd>
+
+            <dt class="col-sm-3">Last Updated</dt>
+            <dd class="col-sm-9">{{ asset.updated_at | datetime }}</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col">
+        <h3>Recent Orders</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                        <th>Department</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in recent_orders %}
+                    <tr>
+                        <td>{{ order.id }}</td>
+                        <td>
+                            <span class="badge bg-{{ 'success' if order.order_type == 'incoming' else 'danger' }}">
+                                {{ order.order_type }}
+                            </span>
+                        </td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.department }}</td>
+                        <td>{{ order.created_at | datetime }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

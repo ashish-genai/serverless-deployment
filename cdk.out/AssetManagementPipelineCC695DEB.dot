@@ -1,0 +1,75 @@
+digraph G {
+  # Arrows represent an "unlocks" relationship (opposite of dependency). So chosen
+  # because the layout looks more natural that way.
+  # To represent subgraph dependencies, subgraphs are represented by BEGIN/END nodes.
+  # To render: `dot -Tsvg AssetManagementPipelineCC695DEB.dot > graph.svg`, open in a browser.
+  node [shape="box"];
+"BEGIN Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Build" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Build.Synth";
+"Source.yourusername/asset-management" -> "Build.Synth";
+"BEGIN Build" -> "Build.Synth";
+"Build.Synth" -> "END Build";
+"BEGIN UpdatePipeline" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END UpdatePipeline" [shape="cds", style="filled", fillcolor="#b7deff"];
+"UpdatePipeline.SelfMutate";
+"Build.Synth" -> "UpdatePipeline.SelfMutate";
+"BEGIN UpdatePipeline" -> "UpdatePipeline.SelfMutate";
+"UpdatePipeline.SelfMutate" -> "END UpdatePipeline";
+"BEGIN Assets" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Assets" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Assets.FileAsset1";
+"UpdatePipeline.SelfMutate" -> "Assets.FileAsset1";
+"Assets.FileAsset2";
+"UpdatePipeline.SelfMutate" -> "Assets.FileAsset2";
+"Assets.FileAsset3";
+"UpdatePipeline.SelfMutate" -> "Assets.FileAsset3";
+"BEGIN Assets" -> "Assets.FileAsset1";
+"BEGIN Assets" -> "Assets.FileAsset2";
+"BEGIN Assets" -> "Assets.FileAsset3";
+"Assets.FileAsset1" -> "END Assets";
+"Assets.FileAsset2" -> "END Assets";
+"Assets.FileAsset3" -> "END Assets";
+"BEGIN Staging" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Staging" [shape="cds", style="filled", fillcolor="#b7deff"];
+"UpdatePipeline.SelfMutate" -> "BEGIN Staging";
+"BEGIN Staging.AssetManagement" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Staging.AssetManagement" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Staging.UnitTest" -> "BEGIN Staging.AssetManagement";
+"Staging.AssetManagement.Deploy";
+"Staging.AssetManagement.Prepare" -> "Staging.AssetManagement.Deploy";
+"Staging.AssetManagement.Prepare";
+"Build.Synth" -> "Staging.AssetManagement.Prepare";
+"Assets.FileAsset1" -> "Staging.AssetManagement.Prepare";
+"Assets.FileAsset2" -> "Staging.AssetManagement.Prepare";
+"Assets.FileAsset3" -> "Staging.AssetManagement.Prepare";
+"BEGIN Staging.AssetManagement" -> "Staging.AssetManagement.Prepare";
+"Staging.AssetManagement.Deploy" -> "END Staging.AssetManagement";
+"Staging.UnitTest";
+"BEGIN Staging" -> "Staging.UnitTest";
+"END Staging.AssetManagement" -> "END Staging";
+"BEGIN Production" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Production" [shape="cds", style="filled", fillcolor="#b7deff"];
+"UpdatePipeline.SelfMutate" -> "BEGIN Production";
+"END Staging" -> "BEGIN Production";
+"BEGIN Production.AssetManagement" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Production.AssetManagement" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Production.PromoteToProduction" -> "BEGIN Production.AssetManagement";
+"Production.AssetManagement.Deploy";
+"Production.AssetManagement.Prepare" -> "Production.AssetManagement.Deploy";
+"Production.AssetManagement.Prepare";
+"Build.Synth" -> "Production.AssetManagement.Prepare";
+"Assets.FileAsset1" -> "Production.AssetManagement.Prepare";
+"Assets.FileAsset2" -> "Production.AssetManagement.Prepare";
+"Assets.FileAsset3" -> "Production.AssetManagement.Prepare";
+"BEGIN Production.AssetManagement" -> "Production.AssetManagement.Prepare";
+"Production.AssetManagement.Deploy" -> "END Production.AssetManagement";
+"Production.PromoteToProduction";
+"BEGIN Production" -> "Production.PromoteToProduction";
+"END Production.AssetManagement" -> "END Production";
+"BEGIN Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"END Source" [shape="cds", style="filled", fillcolor="#b7deff"];
+"Source.yourusername/asset-management";
+"BEGIN Source" -> "Source.yourusername/asset-management";
+"Source.yourusername/asset-management" -> "END Source";
+}

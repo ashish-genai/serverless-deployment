@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}View Order{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Order Details</h2>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Order ID</dt>
+            <dd class="col-sm-9">#{{ order.id }}</dd>
+
+            <dt class="col-sm-3">Type</dt>
+            <dd class="col-sm-9">
+                <span class="badge bg-{{ 'success' if order.order_type == 'incoming' else 'danger' }}">
+                    {{ order.order_type }}
+                </span>
+            </dd>
+
+            <dt class="col-sm-3">Asset</dt>
+            <dd class="col-sm-9">{{ order.asset.name }}</dd>
+
+            <dt class="col-sm-3">Quantity</dt>
+            <dd class="col-sm-9">{{ order.quantity }}</dd>
+
+            <dt class="col-sm-3">Department</dt>
+            <dd class="col-sm-9">{{ order.department }}</dd>
+
+            <dt class="col-sm-3">Created By</dt>
+            <dd class="col-sm-9">{{ order.user.username }}</dd>
+
+            <dt class="col-sm-3">Created At</dt>
+            <dd class="col-sm-9">{{ order.created_at | datetime }}</dd>
+        </dl>
+
+        <div class="mt-4 d-flex justify-content-end">
+            <a href="{{ url_for('orders.list_orders') }}" class="btn btn-secondary">Back to Orders</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,1 @@
+This directory will contain the installed Python packages for the Lambda layer.

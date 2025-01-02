@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}Create Order{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h2>Create Order</h2>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <form method="POST" class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="order_type" class="form-label required">Order Type</label>
+                <select class="form-select" id="order_type" name="order_type" required>
+                    <option value="">Select Order Type</option>
+                    <option value="incoming">Incoming</option>
+                    <option value="outgoing">Outgoing</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="asset_id" class="form-label required">Asset</label>
+                <select class="form-select" id="asset_id" name="asset_id" required>
+                    <option value="">Select Asset</option>
+                    {% for asset in assets %}
+                    <option value="{{ asset.id }}">{{ asset.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="quantity" class="form-label required">Quantity</label>
+                <input type="number" class="form-control" id="quantity" name="quantity" required min="1">
+            </div>
+
+            <div class="mb-3">
+                <label for="department" class="form-label required">Department</label>
+                <input type="text" class="form-control" id="department" name="department" required>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="{{ url_for('orders.list_orders') }}" class="btn btn-secondary me-2">Cancel</a>
+                <button type="submit" class="btn btn-primary">Create Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
